@@ -1,6 +1,7 @@
 package com.extendedclip.papi.expansion.thirst;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import com.hmmcrunchy.thirst.Thirst;
@@ -33,14 +34,15 @@ public class ThirstExpansion extends PlaceholderExpansion {
 	
 	@Override
 	public String getVersion() {
-		return "1.2.0";
+		return "1.2.1";
 	}
 	
 	@Override
-	public String onPlaceholderRequest(Player p, String s) {
-		if (p == null) {
+	public String onRequest(OfflinePlayer offline, String s) {
+		if (offline == null || !offline.isOnline()) {
 			return "";
 		}
+		Player p = (Player) offline;
 		if (this.thirst == null) {
 			return "0";
 		}
