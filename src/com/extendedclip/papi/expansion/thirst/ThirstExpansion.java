@@ -42,12 +42,11 @@ public class ThirstExpansion extends PlaceholderExpansion {
 		if (offline == null || !offline.isOnline()) {
 			return "";
 		}
-		Player p = (Player) offline;
 		if (this.thirst == null) {
 			return "0";
 		}
 		try {
-			return String.valueOf(this.thirst.checkthirst(p));
+			return String.valueOf(this.thirst.checkthirst((Player) offline));
 		} catch (Exception ex) {
 		}
 		return "0";
